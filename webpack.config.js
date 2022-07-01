@@ -1,17 +1,14 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    first: './src/index.js',
+    second: './src/menu.js'
+  },
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-    }),
-  ],
   module: {
     rules: [
       {
@@ -20,7 +17,11 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|jfif)$/i,
+        type: 'asset/resource',
+      },
     ]
   }
 };
