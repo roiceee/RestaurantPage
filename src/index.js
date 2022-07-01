@@ -1,1 +1,5 @@
-console.log("Hello webpack");
+function printConsoleLog() {
+    console.log("Hello Webpack");
+}
+
+printConsoleLog();
